@@ -1,0 +1,120 @@
+/***************************** register form ******************************/
+
+.b-reg-form {
+    border: 1px solid #a6d3e0;
+    margin: 10px 10px 10px 0;
+    background-color: #f5f6f8;
+}
+
+.b-reg-form-submit {
+    width: 133px;
+    margin-left: 234px;
+}
+
+.cfield {
+    clear: both;
+}
+
+.cfield-label {
+    float: left;
+    width: 213px;
+    padding: 10px 10px 10px 0;
+    text-align: right;
+    background-color: #f5f6f8;
+}
+
+.cfield-input {
+    /* 	width: 300px; */
+    padding: 10px 10px;
+    margin-left: 223px;
+    background-color: #ffffff;
+
+}
+
+.cfield-input-text {
+    border: 1px solid #a6d3e0;
+    width: 133px;
+    height: 16px;
+}
+
+.text-error {
+    font: 11px Arial;
+    font-weight: bold;
+    color: #8d0000;
+}
+
+.text-comment {
+    font: 11px Arial;
+    color: #808080;
+}
+
+.input-invalid {
+    border-color: #8d0000;
+}
+
+.cfield-label-invalid {
+    font-weight: bold;
+    color: #8d0000;
+}
+
+/***************************** end register form ******************************/
+
+/***************************** auth form ******************************/
+.b-auth {
+    position: relative;
+    padding-top: 5px;
+}
+
+.b-auth-name {
+    font: 18px Arial;
+    color: #26648f;
+    padding-bottom: 5px;
+
+}
+
+.b-auth-field {
+    float: left;
+    margin-right: 10px;
+}
+
+.b-auth-input {
+    border: 1px solid #a6d3e0;
+    color: $header-color;
+    font: 13px Arial;
+    width: 114px;
+    height: 20px;
+    padding: 0px 5px;
+    border-radius: 3px;
+}
+
+.b-auth-submit {
+    font: 11px Arial;
+    height: 22px ;
+    padding: 0px 5px;
+    border: 1px solid #a6d3e0;
+    background-color: #f5f6f8;
+    text-align: center;
+    font-weight: bold;
+    color: #4b8bb7;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.smalltext{
+    /*padding-left: 130px;*/
+    font: 11px Arial;
+}
+
+.b-auth-remember {
+    border: 1px solid #8e8f8f;
+}
+
+.b-auth-sub-list {
+    list-style-position: inside;
+    list-style: none;
+}
+.b-auth-sub-list-item{
+   float: left;
+   margin-right: 10px;
+}
+
+/***************************** end auth form ******************************/

@@ -1,0 +1,12 @@
+{% load filters %}
+<div class="story-content" style="clear: both; max-width: 700px;">
+
+    <p class="story-content-text" style="padding: 10px 60px 10px 0">{{ story.text }}</p>
+
+    {% for a in story.attachments.all %}
+
+        <br>
+        <img style=" display: block;" width="600px" src={{ MEDIA_URL }}{{ a.photo|photo_filter:"StoryViewPhotoView" }}>
+    {% endfor %}
+
+</div>

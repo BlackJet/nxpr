@@ -1,0 +1,16 @@
+{% load filters %}
+
+<div id="stories">
+    <h1>
+        <span>Стена&nbsp</span>
+    </h1>
+
+    <div class="story-list">
+        {% include "template/story_block.html"%}
+    </div>
+
+    <input type="hidden" value="{{ total }}">
+    <button id="nextStoryPage">next</button>
+
+
+</div>

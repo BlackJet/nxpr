@@ -1,0 +1,146 @@
+{% if user.is_authenticated %}
+{% load filters %}
+<div id="profile">
+    <div class="w-center">
+        <div class="b-right">
+            <h1 class="b-right-h1">
+                <span>{{ user.first_name }} {{ user.last_name }} &nbsp</span>
+            </h1>
+
+            <div class="b-right-status" style="position: relative;">
+                <div>
+                <span id="statustext" {% if not user.get_profile.status  %} blank {% endif %}>{% firstof user.get_profile.status "изменить статус" %}</span>
+                </div>
+                <form name="status_editor" id='status_editor' action="/api/profile/status/" method="POST" style="-webkit-border-radius: 3px;display: none;width: 100%;position: absolute; margin: -10px 0px 0px 0px; background-color: #ddd; padding: 3px;">
+                    <input name="status" type="text" value="" maxlength="140" style="width: 100%" />
+                    {% csrf_token %}
+                </form>
+            </div>
+            <div class="b-right-section">
+                <p class="field">
+                <div class="field-label">День рождения:</div>
+                <div class="field-text">
+                    <a href="/profile_edit/" class="field-link">{{ user.get_profile.bd }}</a>
+                </div>
+                </p>
+                <p class="field">
+                <div class="field-label">Родной город:</div>
+                <div class="field-text">
+                    <a href="/profile_edit/"  class="field-link">{% firstof user.get_profile.city "-" %}</a>
+                </div>
+                </p>
+                <p class="field">
+                <div class="field-label">Пол</div>
+                <div class="field-text">
+                    <a href="/profile_edit/"  class="field-link">{{ user.get_profile.gender|yesno:"Женский,Мужской,-"}} </a>
+                </div>
+                </p>
+            </div>
+
+            <div class="b-right-section">
+                <div class="b-right-section-header">
+                    <span class="section-h1">Контактная информация &nbsp</span>
+                </div>
+                <p class="field">
+                <div class="field-label">ICQ:</div>
+                <div class="field-text">
+                    <a href="/profile_edit/"  class="field-link">{% firstof user.get_profile.icq "-" %}</a>
+                </div>
+                </p>
+                <p class="field">
+                <div class="field-label">Skype:</div>
+                <div class="field-text">
+                    <a href="/profile_edit/"  class="field-link">{% firstof user.get_profile.skype "-" %}</a>
+                </div>
+                </p>
+                <p class="field">
+
+                <div class="field-label">Мобильный:</div>
+                <div class="field-text">
+                    <a href="/profile_edit/" class="field-link">{% firstof user.get_profile.mobileTel "-" %}</a>
+                </div>
+                </p>
+            </div>
+            <div class="b-right-section">
+                <div class="b-right-section-header">
+                    <span class="section-h1">Взгляды &nbsp</span>
+                </div>
+                <p class="field">
+                <div class="field-label">Кто по жизни</div>
+                <div class="field-text">
+                    <a href="/profile_edit/"  class="field-link">{% firstof user.get_profile.credo "-" %}</a>
+                </div>
+                </p>
+                <p class="field">
+                <div class="field-label">В чем сила</div>
+                <div class="field-text">
+                    <a href="/profile_edit/"  class="field-link">{% firstof user.get_profile.force "-" %}</a>
+                </div>
+                </p>
+            </div>
+            <div class="b-right-section">
+                <div class="b-right-section-header">
+                    <span class="section-h1">Интересы &nbsp</span>
+                </div>
+                <p class="field">
+
+                <div class="field-label">Любимые фильмы:</div>
+                <div class="field-text">
+                    <a href="/profile_edit/" class="field-link"></a> <a href="#" class="field-link"> {% firstof user.get_profile.favFilms "-" %}</a>
+                </div>
+                </p>
+                <p class="field">
+
+                <div class="field-label">Любимая музыка:</div>
+                <div class="field-text">
+                    <a href="/profile_edit/" class="field-link"></a> <a href="#" class="field-link"> {% firstof user.get_profile.favMusic "-" %}</a>
+                </div>
+                </p>
+            </div>
+        </div>
+        <div class="b-leftrightmid"></div>
+        <div class="b-left">
+            <p class="b-left-photo">
+                <a href="#" class="b-left-photo-link">
+                    {% if user.get_profile.avatar %}
+                    <img width="201" height="358" src={{ MEDIA_URL }}{{ user.get_profile.avatar|photo_filter:"AvatarViewPhotoView" }} alt="Hunny"/> </a>
+                    {% else %}
+                    <img width="201" height="358" src="{{STATIC_URL}}img/honey.jpg" alt="Hunny"/> </a>
+                    {% endif %}
+            </p>
+            <ul class="b-menu b-menu-profile">
+                <li class="b-menu-item"><a href="#upload" class="b-menu-item-link">Изменить аватар</a></li>
+                <form style="visibility: hidden; position: absolute;" name="photoUploadForm" method="POST" enctype="multipart/form-data">{% csrf_token %}<input type="file" name="photo" /></form>
+            </ul>
+        </div>
+    </div>
+
+    <div class="b-bottom">
+        <div class="b-bottom-header">
+            Стена (186 записей)<span>Написать на стене</span>
+        </div>
+        <div class="b-bottom-field">
+            <p class="b-bottom-field-photo">
+                <a href="#" class="b-bottom-field-photo-link"><img src="{{STATIC_URL}}img/nikolay.jpg"
+                                                                   alt="nikolay"/> </a>
+            </p>
+
+            <div class="b-bottom-field-content">
+                <p class="b-bottom-field-content-header">
+                    Николай Озеров <span>22.08.2011</span>
+                </p>
+
+                <p class="b-bottom-field-content-body">Передаём привет и приглашаем в гости на запись +
+                    несколько скитов от палкинсов. Ты должен быть с нами!</p>
+
+            </div>
+            <p class="b-bottom-field-sub">
+                <a href="#">Редактировать</a>&nbsp | <a href="#">Комментировать</a>&nbsp | <a href="#">Удалить</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<p>Welcome, new user. Please log in.</p>
+{% endif %}

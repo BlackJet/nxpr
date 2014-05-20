@@ -1,0 +1,16 @@
+{% load filters %}
+<div id="story" class="comment-window" >
+    <div id="story-content" class="comment-body">
+        <div class="comment-list">
+            {% for comment in story.comments.all %}
+                {% include "template/story_comment.html"%}
+             {% endfor %}
+            <div class="comment-form">
+                <textarea name="text" placeholder="Пиши сюда..." ></textarea>
+                <button class="comment-submit cupid-green">Enter</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>

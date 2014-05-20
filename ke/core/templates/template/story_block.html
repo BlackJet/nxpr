@@ -1,0 +1,33 @@
+{% load filters %}
+
+{% for story in stories %}
+    <ul class="story-block">
+        <input type="hidden" value="{{story.id}}">
+        {% if story.thumb %}
+            <li class="story-thumb"
+                style="background:url({{ MEDIA_URL }}{{ story.thumb|photo_filter:'StoryThumbPhotoView' }});"></li>
+        {% else %}
+            <li class="story-thumb" style="background:url({{ STATIC_URL }}img/story-preview.jpg);"></li>
+        {% endif %}
+        <li style="width:550px;">
+            <h1 style="margin-top:-5px">{{ story.title }} </h1>
+
+            <h3>{{ story.description }}</h3>
+
+            <div class="story-block-footer">
+                {{ story.user.last_name }} {{ story.user.first_name }} &nbsp &nbsp {{ story.date }} {{ story.id }}&nbsp &nbsp <a href="#story-comment">Комментов: {{ story.comments.count }}</a>
+
+                <div class="story-open"
+                     style="float:right;margin-right:5px;width:23px; height:23px; background:url({{ STATIC_URL }}img/show_pic.png)"></div>
+            </div>
+        </li>
+        <li>
+            <p class="story-upvote arrow-up{% if story.rateValue > 0 %} arrow-clicked{% endif %}"></p>
+
+            <p class="rate" style="margin:4px 0;text-align: center;">{{ story.rating|default_if_none:"0" }}</p>
+
+            <p class="story-downvote arrow-down{% if story.rateValue < 0 %} arrow-clicked{% endif %}"></p>
+        </li>
+    </ul>
+{% endfor %}
+

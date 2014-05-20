@@ -1,0 +1,19 @@
+<ul class="comment">
+    <li class="comment-thumb" style="background:url({{ STATIC_URL }}img/story-preview.jpg);"></li>
+    <li class="comment-content">
+        <p class="comment-header"> {{ comment.user.first_name }} {{ comment.user.last_name }} <span class="comment-date" >{{ comment.date|date:"d.m.y h:m:s" }}</span></p>
+        <p class="comment-text">
+        {% autoescape off %}
+            {{ comment.text }}
+        {% endautoescape %}
+    </p>
+    </li>
+    <li>
+        <p class="comment-upvote arrow-up" style="margin:0 auto; "></p>
+
+        <p class="rate" style="text-align: center;">{{ comment.rating|default_if_none:"0" }}</p>
+
+        <p class="comment-downvote arrow-down" style="margin:0 auto;"></p>
+    </li>
+</ul>
+

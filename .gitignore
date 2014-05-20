@@ -1,0 +1,6 @@
+
+/ke/settings_local.py
+/ke/static
+
+*.pyc
+.idea

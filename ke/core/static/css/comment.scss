@@ -1,0 +1,90 @@
+.comment-window {
+  position: fixed;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+
+  & .comment-body {
+    position: relative;
+    margin: 0 auto;
+    background: #fff;
+    top: 20px;
+    width: 700px;
+    overflow:hidden;
+    padding-bottom:30px;
+    & .comment-list {
+      width: 650px;
+      position: relative;
+      margin: 0 auto;
+      top: 20px;
+
+      &  .comment {
+        position: relative;
+        list-style-type: none;
+        padding-bottom: 5px;
+        overflow: hidden;
+
+        & li {
+          float: left;
+          list-style-type: none;
+          display: table-cell;
+          margin-left: 10px;
+        }
+
+        & .comment-thumb {
+          border-radius: 3px;
+          width: 50px;
+          height: 50px;
+          margin-left: 0px;
+          background-position: top center;
+          background-repeat: no-repeat;
+        }
+        & .comment-content {
+          width: 550px;
+
+          & .comment-header {
+            margin-top: -1px;
+            color: #2B587A;
+
+            & .comment-date {
+              display: block;
+              float: right;
+              padding-right: 20px;
+              color: #999
+            }
+          }
+          & .comment-text {
+            padding-right: 110px
+          }
+        }
+
+      }
+      & .comment-form {
+        margin: 0 36px 0 60px;
+        width: 550px;
+        & textarea {
+          font: 12px Tahoma, Geneva, sans-serif;
+          color: $header-color;
+          border: 1px solid #ddd;
+          height: 100px;
+          width: 400px;
+          float: left;
+          resize: none;
+          @include rounded(bottom-left,3px);
+          @include rounded(top-left,3px);
+          padding-left: 5px;
+        }
+        & .comment-submit {
+          width: 100px;
+          height: 102px;
+          float: left;
+          @include rounded(bottom-left,0);
+          @include rounded(top-left,0);
+        }
+      }
+
+    }
+  }
+}

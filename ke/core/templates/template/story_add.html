@@ -1,0 +1,60 @@
+<div id="storyForm">
+    <h1>
+        <span>Новости / Добавить&nbsp</span>
+    </h1>
+
+    <form action="#" class="story-form" name="storyForm" enctype="multipart/form-data">
+
+        <p class="story-form-field">
+
+        <input placeholder="Заголовок" class="text-input" type="text" name="title" tabindex="1"/>
+        </p>
+        <p class="story-form-field">
+            <input type="file" name="thumb">
+        </p>
+
+        <p class="story-form-field">
+            <textarea name="description" rows="4" placeholder="Описание ..." class="text-input" tabindex="2"/>
+        </p>
+
+        <p class="story-form-field">
+        <textarea name="text" rows="10" placeholder="Текст ..." class="text-input" tabindex="3"/>
+        </p>
+
+
+
+        <p style="margin-top: 20px;font: 18px Tahoma,Geneva,sans-serif;text-shadow: 0 0 2px #CCC;">Прикрепленные файлы</p>
+
+        <!--<div class="story-form-attachfield" >-->
+            <!--<input type="file" name="photo1" style="visibility: hidden; position: absolute;">-->
+            <!--<input type="text" name="title1" placeholder="Заголовок фото ..." class="text-input" style="border:none;"></textarea>-->
+            <!--<div class="story-photo-footer">-->
+
+                <!--<img class="story-new-photo" src="http://img.lenta.ru/news/2012/05/17/deorfr/picture.jpg" style="max-width: 120px; max-height: 60px; float:left; margin-right: 10px; ">-->
+                <!--<span style="font: 12px Tahoma,Geneva,sans-serif;"> Можно закачать файлы не более 5Мб</span>-->
+                <!--<span style="position: absolute; right: 5px;"><a>Удалить</a></span>-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <div class="story-toolbar" style="margin: 20px 0;clear: both;">
+            <a href="#addPhoto">Добавить фото</a>
+        </div>
+        {% csrf_token %}
+        <!--<video width="320" height="240" controls="controls">-->
+            <!--<source src="movie.mp4" type="video/mp4" />-->
+            <!--<source src="movie.ogg" type="video/ogg" />-->
+            <!--<source src="movie.webm" type="video/webm" />-->
+            <!--<object data="movie.mp4" width="320" height="240">-->
+                <!--<embed src="movie.swf" width="320" height="240">-->
+                    <!--Your browser does not support video-->
+                <!--</embed>-->
+            <!--</object>-->
+        <!--</video>-->
+        <!--<iframe src="http://www.youtube.com/embed/89VfA7Eq_3M" width="600px" height="475px" frameborder="0"></iframe>-->
+        <!--<iframe src="http://player.vimeo.com/video/40613192" width="600px" height="475px" frameborder="0"></iframe>-->
+        <!--<iframe src="http://vk.com/video_ext.php?oid=-25154125&id=162881204&hash=fa1ba1a0415ada19&hd=1" width="600px" height="475px" frameborder="0"></iframe>-->
+    </form>
+    <button class="cupid-green story-form-submit" style="display: block;">Отправить</button>
+</div>

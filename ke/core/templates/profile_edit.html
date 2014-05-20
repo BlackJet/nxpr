@@ -1,0 +1,116 @@
+{% if user.is_authenticated %}
+<div id="profile-edit">
+    <h1>
+        <span>Редактирование профиля&nbsp</span>
+    </h1>
+
+    <form name="profile_edit" method="POST" action="/api/profile/" class="form">
+
+        <p class="form-field">
+
+        <div class="form-field-label">Родной город:</div>
+        <div class="form-field-input">
+            <input type="text" name="city" class="form-field-input-text" value="{% firstof user.get_profile.city %}"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+
+        <p class="form-field">
+
+        <div class="form-field-label">Пол:</div>
+        <div class="form-field-input">
+            <select class="form-field-input-text" style="background: #f5f6f8" name="gender">
+                <option value="null" selected="selected">Не выбран</option>
+                <option value="0" {% if user.get_profile.gender == 0  %} selected="selected" {% endif %}>Мужской</option>
+                <option value="1" {% if user.get_profile.gender == 1  %} selected="selected" {% endif %}>Женский</option>
+            </select>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+
+        <p class="form-field">
+
+        <div class="form-field-label">Skype:</div>
+        <div class="form-field-input">
+            <input type="text" name="skype" value="{% firstof user.get_profile.skype "" %}" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+
+        <p class="form-field">
+
+        <div class="form-field-label">ICQ:</div>
+        <div class="form-field-input">
+            <input type="text" name="icq" value="{% firstof user.get_profile.icq "" %}" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+
+        <p class="form-field">
+
+        <div class="form-field-label">Мобильный телефон:</div>
+        <div class="form-field-input">
+            <input type="text" name="mobileTel" value="{% firstof user.get_profile.mobileTel "" %}" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+
+        <p class="form-field">
+
+        <div class="form-field-label">Кто по жизни:</div>
+        <div class="form-field-input">
+            <input type="text" name="credo"value="{% firstof user.get_profile.credo "" %}" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+        <p class="form-field">
+
+        <div class="form-field-label">В чем сила:</div>
+        <div class="form-field-input">
+            <input type="text" name="force" value="{% firstof user.get_profile.force "" %}" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+        <p class="form-field">
+
+        <div class="form-field-label">Любимые фильмы:</div>
+        <div class="form-field-input">
+            <textarea name="favFilms" class="form-field-area-text">{% firstof user.get_profile.favFilms "" %}</textarea>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+
+        <p class="form-field">
+
+        <div class="form-field-label"> Любимая музыка:</div>
+        <div class="form-field-input">
+            <textarea name="favMusic" class="form-field-area-text">{% firstof user.get_profile.favMusic "" %}</textarea>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+        </p>
+        {% csrf_token %}
+    </form>
+    <button class="cupid-green b-reg-form-submit" id="profile_edit_submit">Сохранить</button>
+</div>
+
+{% else %}
+    <p>Welcome, new user. Please log in.</p>
+{% endif %}

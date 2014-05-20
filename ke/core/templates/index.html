@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="{{STATIC_URL}}js/lib/jquery.min.js"></script>
+
+    {#<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}js/lib/jquery-ui/css/redmond/jquery-ui-1.8.16.custom.css" media="screen">#}
+{#<script type="text/javascript" src="{{STATIC_URL}}js/lib/jquery-ui/js/jquery-1.6.2.min.js"></script>#}
+{#<script type="text/javascript" src="{{STATIC_URL}}js/lib/jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>#}
+<script type="text/javascript" src="{{STATIC_URL}}js/lib/underscore/underscore.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/lib/backbone/backbone.js"></script>
+
+<script type="text/javascript" src="{{STATIC_URL}}js/lib/jquery.form.js"></script>
+
+<script type="text/javascript" src="{{STATIC_URL}}js/lib/jquery-plugin/jquery.history.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/init.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/model/User.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/collection/UserCollection.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/Main.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/User.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/AuthForm.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/RegForm.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/ProfileView.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/ProfileEditView.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/StoryAddFormView.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/StoriesView.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/StoryView.js"></script>
+
+<script type="text/javascript" src="{{STATIC_URL}}js/view/SellView.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/view/Menu.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/router.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/main.js"></script>
+<title>boo</title>
+</head>
+<body>
+	<div class="l-header">
+		<div class="l-header-top">
+			<div class="l-header-center">
+                <a href="/" style="display: block; float: left; position: relative; top:-10px;"><img src="{{STATIC_URL}}img/home.png"></a>
+                {%  if not user.is_authenticated   %}
+                    {% include 'account_form_auth.html' %}
+                {% else %}
+                    <a id="logout" href="/" style="display: block; float: right; position: relative; top:-10px;"><img src="{{STATIC_URL}}img/exit.png"></a>
+                {% endif %}
+			</div>
+		</div>
+	</div>
+	<div class="l-content">
+		<div class="h-shadow"></div>
+{#		<div class="h-rightbar"></div>#}
+		<div class="h-center">
+
+		</div>
+		<div class="h-nav">
+			<ul class="b-menu b-menu-main">
+                <li class="b-menu-header">Моя страница</li>
+				<li class="b-menu-item selected"><a href="/profile/" class="b-menu-item-link "
+					style="background: url({{STATIC_URL}}img/profile.png) no-repeat top left;">Профиль</a>
+				</li>
+				<li class="b-menu-item"><a href="#" class="b-menu-item-link"
+					style="background: url({{STATIC_URL}}img/messages.png) no-repeat top left;">Сообщения</a>
+				</li>
+				<li class="b-menu-item"><a href="#" class="b-menu-item-link"
+					style="background: url({{STATIC_URL}}img/photos.png) no-repeat top left;">Фотографии</a>
+				</li>
+				<li class="b-menu-item"><a href="/profile_edit/" class="b-menu-item-link"
+					style="background: url({{STATIC_URL}}img/config.png) no-repeat top left;">Настройки</a>
+				</li>
+				<li class="b-menu-item"><a href="#" class="b-menu-item-link"
+					style="background: url({{STATIC_URL}}img/favourites.png) no-repeat top left;">Закладки</a>
+				</li>
+				<li class="b-menu-item no-border-bottom"><a href="#" class="b-menu-item-link"
+					style="background: url({{STATIC_URL}}img/friends.png) no-repeat top left;">Друзья</a>
+				</li>
+                <li class="b-menu-header">Стена</li>
+                <li class="b-menu-item"><a href="/story_add/" class="b-menu-item-link"
+                                           style="background: url({{STATIC_URL}}img/allnews.png) no-repeat top left;">Добавить пост</a></li>
+				<li class="b-menu-item"><a href="/story/" class="b-menu-item-link"
+					style="background: url({{STATIC_URL}}img/chat.png) no-repeat top left;">Все посты</a></li>
+                <li class="b-menu-header">Объявления</li>
+                <li class="b-menu-item"><a href="/story_add/" class="b-menu-item-link" style="background: url({{STATIC_URL}}img/allnews.png) no-repeat top left;">Добавить объявление</a></li>
+                <li class="b-menu-item"><a href="/sell/" class="b-menu-item-link" style="background: url({{STATIC_URL}}img/chat.png) no-repeat top left;">Купля/Продажа</a></li>
+                <li class="b-menu-item"><a href="/story/" class="b-menu-item-link" style="background: url({{STATIC_URL}}img/chat.png) no-repeat top left;">Спрос/Предложение</a></li>
+                <li class="b-menu-item"><a href="/story/" class="b-menu-item-link" style="background: url({{STATIC_URL}}img/chat.png) no-repeat top left;">Утеря/Находка</a></li>
+                <li class="b-menu-header">Мнения</li>
+				<li class="b-menu-item"><a href="#" class="b-menu-item-link"
+					style="background: url({{STATIC_URL}}img/chat.png) no-repeat top left;">Вопросы-ответы</a></li>
+				<li class="b-menu-item no-border-bottom"><a href="#" class="b-menu-item-link"
+					style="background: url({{STATIC_URL}}img/polls.png) no-repeat top left;">Опросы</a>
+				</li>
+			</ul>
+		</div>
+		<div style="clear: both;">&nbsp</div>
+
+	</div>
+
+</body>
+</html>

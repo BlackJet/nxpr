@@ -1,0 +1,426 @@
+@option compress: no;
+@import "mixins";
+/***************************** global ******************************/
+$a-color: #4b8bb7;
+$header-color: #26648f;
+$statustext-color: #808080;
+$title-gradient-topColor: #0077af;
+$title-gradient-bottomColor: #005d88;
+$text-color: #404040;
+$menuItemHoverColor: #E1EDF2;
+$menuBgColor: #f5f6f8;
+$borderColor: #a6d3e0;
+
+.fl_l {
+  float: left;
+}
+
+.fl_r {
+  float: right;
+}
+
+.top-section {
+  float: left;
+  margin: 0px 5px;
+  position: relative;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  outline: 0px;
+}
+
+html, body {
+  font: 13px Arial;
+  color: $text-color;
+  background-color: #ebeef1;
+}
+
+a {
+  color: $a-color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  font: 18px Arial;
+  color: $header-color;
+  span {
+    background-color: #ffffff;
+  }
+}
+
+#statustext {
+  font: 11px Arial;
+  color: $statustext-color;
+}
+
+/***************************** end global ******************************/
+/***************************** header ******************************/
+
+div {
+  &.l-header {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 7px;
+  }
+  &.l-header-center {
+    width: 980px;
+    height: 40px;
+    margin: 0 auto;
+    padding: 10px 10px;
+    @include rounded-bottom(4px);
+    background: url(/static/img/menu-title.png) repeat-x;
+    @include gradient($title-gradient-topColor,$title-gradient-bottomColor);
+
+  }
+  &.l-content {
+    position: relative;
+    margin: 0 auto;
+    width: 980px;
+    @include rounded-all(10px);
+    background-color: #ffffff;
+    padding: 10px;
+    border-left: 1px solid #d0d3d5;
+    border-right: 1px solid #d0d3d5;
+    z-index: 1;
+  }
+  &.h-shadow {
+    position: absolute;
+    left: -12px;
+    top: 0px;
+    z-index: -1;
+    background: url(/static/img/content-shadow-clear.png) no-repeat;
+    width: 1024px;
+    height: 75px;
+  }
+}
+
+/***************************** content ******************************/
+
+.h-toolbar {
+  height: 40px;
+}
+
+.h-nav {
+/* 	float: left; */
+}
+
+/***************************** user menu ******************************/
+
+.b-menu-header {
+  width: 160px;
+  height: 12px;
+  font: 13px Arial;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 2px 9px 8px 31px;
+  background: url(/static/img/menu-title.png) repeat-x;
+  @include rounded-top(4px);
+  @include gradient($title-gradient-topColor,$title-gradient-bottomColor);
+}
+
+.b-menu {
+  list-style: none inside;
+  background-color: $menuBgColor;
+}
+
+.b-menu-main {
+  width: 200px;
+}
+
+.b-menu .selected, .b-menu-item:hover {
+  background-color: $menuItemHoverColor;
+}
+
+.b-menu .selected a, .b-menu-item:hover a {
+  text-decoration: none;
+}
+
+.b-menu-main {
+  .selected a, .b-menu-item:hover a {
+    font-weight: bold;
+  }
+}
+
+.b-menu-item {
+  border-bottom: 1px solid $borderColor;
+  height: 19px;
+  padding-left: 5px;
+  padding-top: 4px;
+}
+
+.b-menu-item-link {
+  font: 13px Arial;
+  padding-left: 26px;
+  display: block;
+  height: 19px;
+}
+
+/***************************** end user menu ******************************/
+/***************************** center view ******************************/
+
+.h-center {
+  float: right;
+  width: 760px;
+  margin: 0 10px;
+}
+
+/***************************** end center view ******************************/
+
+/***************************** right bar ad ******************************/
+
+.h-rightbar {
+  float: right;
+  width: 200px;
+  min-height: 1px;
+}
+
+/***************************** end right bar ad ******************************/
+
+/***************************** end content ******************************/
+
+.no-border-bottom {
+  border-bottom: 0px;
+}
+
+/****************************button**********************************************/
+
+button.cupid-green {
+  @include gradient(#7fbf4d, #63a62f);
+  border: 1px solid #63a62f;
+  border-bottom: 1px solid #5b992b;
+  @include rounded-all(3px);
+  -webkit-box-shadow: inset 0 1px 0 0 #96ca6d;
+  -moz-box-shadow: inset 0 1px 0 0 #96ca6d;
+  box-shadow: inset 0 1px 0 0 #96ca6d;
+  color: #fff;
+  font: bold 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  line-height: 1;
+  padding: 7px 0 8px 0;
+  text-align: center;
+  text-shadow: 0 -1px 0 #4c9021;
+  width: 150px;
+  &:hover {
+    @include gradient(#76b347, #5e9e2e);
+    -webkit-box-shadow: inset 0 1px 0 0 #8dbf67;
+    -moz-box-shadow: inset 0 1px 0 0 #8dbf67;
+    box-shadow: inset 0 1px 0 0 #8dbf67;
+    cursor: pointer;
+  }
+  &:active {
+    border: 1px solid #5b992b;
+    border-bottom: 1px solid #538c27;
+    -webkit-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+    -moz-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+    box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+  }
+}
+
+.form {
+  border: 1px solid #a6d3e0;
+  margin: 10px 10px 10px 0;
+  background-color: #f5f6f8;
+}
+
+.form-field-label {
+  @extend .fl_l;
+  width: 213px;
+  padding: 10px 10px 10px 0;
+  text-align: right;
+  background-color: $menuBgColor;
+}
+
+.form-field-input {
+  padding: 10px 10px;
+  margin-left: 223px;
+  background-color: #ffffff;
+}
+
+.form-field-input-text {
+  border: 1px solid $borderColor;
+  width: 200px;
+  height: 18px;
+  @include rounded-all(3px);
+}
+
+.form-field-area-text {
+  @extend .form-field-input-text;
+  height: 60px;
+}
+
+.input-invalid {
+  border-color: #8d0000;
+}
+
+.text-error {
+  font: 11px Arial;
+  font-weight: bold;
+  color: #8d0000;
+}
+
+.text-comment {
+  font: 11px Arial;
+  color: #808080;
+}
+
+// story
+
+.story-form {
+  margin: 10px 10px 10px 0;
+  @include rounded-all(3px);
+  padding: 5px;
+  width: 600px;
+}
+
+.story-form-field {
+  margin: 10px 0;
+  overflow: hidden;
+  padding: 3px;
+}
+
+.story-form-attachfield {
+  margin: 10px 0;
+  overflow: hidden;
+  border: 1px solid $borderColor;
+  @include rounded-top(3px);
+
+}
+
+.text-input {
+  @include rounded-all(3px);
+  border: 1px solid $borderColor;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  color: $header-color;
+  font: 14px Tahoma, Geneva, sans-serif;
+  //text-shadow: 0 0 2px;
+
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+
+  &:focus {
+    box-shadow: 0 0 5px $borderColor;
+    -webkit-box-shadow: 0 0 5px $borderColor;
+    -moz-box-shadow: 0 0 5px $borderColor;
+  }
+}
+
+.story-photo-footer {
+  border-top: 1px solid $borderColor;
+  padding: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.story-photo-footer img {
+  @include rounded-all(3px);
+}
+
+.story-form-submit {
+  margin: 0 auto;
+}
+
+//---------------------------------------------------------------------
+
+.story-list {
+  overflow: hidden;
+  color: $header-color;
+
+}
+
+.story-block {
+  position: relative;
+  list-style-type: none;
+  padding: 20px 0px;
+  overflow: hidden;
+
+  & li{
+    float: left;
+    list-style-type: none;
+    display: table-cell;
+    margin-left: 10px;
+  }
+
+  & .story-thumb {
+    border-radius: 3px;
+    width: 70px;
+    height: 70px;
+    margin-left: 0px;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+
+}
+
+
+$rate-color: #797c7d;
+
+.rate {
+  font: 26px Tahoma, Geneva, sans-serif;
+  font-weight: bold;
+  color: $rate-color;
+}
+
+h1 {
+  line-height: 0.7em;
+  font: 16px Tahoma, Geneva, sans-serif;
+  text-shadow: 0 0 2px;
+
+}
+
+h3 {
+  padding-left: 10px;
+  font: 12px Tahoma, Geneva, sans-serif;
+  text-shadow: 0 0 2px;
+  color: $header-color;
+
+}
+
+.story-block-footer {
+  font: 12px Tahoma, Geneva, sans-serif;
+  text-shadow: 0 0 2px;
+  font-weight: bold;
+}
+
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ddd;
+  &:hover{
+    cursor: pointer;
+    border-top-color: #d11;
+  }
+}
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ddd;
+  &:hover{
+    cursor: pointer;
+    border-bottom-color: #d11;
+  }
+}
+.arrow-clicked{
+  border-bottom-color: #d11;
+  border-top-color: #d11;
+  &:hover{
+    cursor: default;
+  }
+}
+//---------------------------------------- import --------------------------------------------
+
+@import "account.style";
+@import "profile.style.scss";
+@import "comment.scss";

@@ -1,0 +1,76 @@
+<div id="regForm">
+    <h1>
+        <span>Регистрация&nbsp</span>
+    </h1>
+
+    <form action="#" class="form">
+        <p class="form-field">
+
+        <div class="form-field-label">Логин:</div>
+        <div class="form-field-input">
+            <input type="text" name="username" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Введите от 2 до 8 символов</div>
+        </div>
+
+        </p>
+        <p class="form-field">
+
+        <div class="form-field-label">Пароль:</div>
+        <div class="form-field-input">
+            <input type="text" name="password" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Пароль должен содержать не менее 6 символов.</div>
+        </div>
+
+        </p>
+        <p class="form-field">
+
+        <div class="form-field-label">Ваш e-mail:</div>
+        <div class="form-field-input">
+            <input type="text" name="email" class="form-field-input-text"/>
+
+            <div class=" text-error"></div>
+            <div class="cfield-comment text-comment">Пример: kefa@mail.ru</div>
+        </div>
+
+        </p>
+        <p class="form-field">
+
+        <div class="form-field-label">Фамилия:</div>
+        <div class="form-field-input">
+            <input type="text" name="ln" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Пример: Бекбаев</div>
+        </div>
+
+        </p>
+        <p class="form-field">
+
+        <div class="form-field-label">Имя:</div>
+        <div class="form-field-input">
+            <input type="text" name="fn" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Пример: Камиль</div>
+        </div>
+
+        </p>
+        <p class="form-field">
+
+        <div class="form-field-label">День рождения:</div>
+        <div class="form-field-input">
+            <input type="text" name="bd" class="form-field-input-text"/>
+
+            <div class="text-error"></div>
+            <div class="text-comment">Пример: 25.05.1988</div>
+        </div>
+
+        </p>
+        {% csrf_token %}
+    </form>
+    <button class="cupid-green b-reg-form-submit" id="reg-button">Регистрация</button>
+</div>
